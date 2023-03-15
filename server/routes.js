@@ -8,7 +8,9 @@ router.route('/users')
     .post(userController.addUser);
 
 router.route('/users/:userId')
-    .get(userController.getUser);
+    .get(userController.getUser)
+    .put(userController.updateUser)
+    .delete(userController.deleteUser)
 
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));

@@ -7,3 +7,5 @@ exports.getUserById = (id) => User.findById(id);
 exports.createUser = (data) => User.create(data);
 
 exports.updateUserById = (id, data) => User.findByIdAndUpdate(id, data);
+
+exports.deleteUserById = (id) => User.findByIdAndDelete(id);
