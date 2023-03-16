@@ -1,14 +1,10 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
 nav {
     background-color: rgba(221, 69, 69, 0.63);
     padding: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 nav > a > img {
@@ -31,12 +27,11 @@ nav > ul > li {
 nav > ul > li > a {
     font-size: 20px;
     padding: 10px;
-    background-color: black;
     color: white;
     text-decoration: none;
 }
 
 nav > ul > li > a:hover {
-    background-color: green;
+    background-color: rgba(104, 33, 33, 0.63);
     box-shadow: 4px 4px black;
 }

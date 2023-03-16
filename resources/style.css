@@ -1,1 +1,12 @@
 @import url('./styles/nav.css');
+@import url('./styles/home.css');
+@import url('./styles/catalog.css');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    font-size: 20px;
+}
