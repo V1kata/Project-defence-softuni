@@ -3,6 +3,7 @@
 @import url('./styles/catalog.css');
 @import url('./styles/forms.css');
 @import url('./styles/details.css');
+@import url('./styles/profile.css');
 
 body {
     margin: 0;
