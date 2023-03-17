@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../images/Icon.png" type="image/x-icon">
+    <title>Viktor Bids</title>
+</head>
+
+<body>
+    <nav>
+        <a href="../index.html"><img src="../images/HomeImage.png" alt="Bidding-system"></a>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./catalog.html">Catalog</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+            <li><a href="./create.html">Create</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./register.html">Register</a></li>
+            <li><a href="./logout.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="forms">
+
+            <form method="post">
+                <h3>Edit</h3>
+
+                <label for="title">Title</label>
+                <input type="text" name="title" class="box" />
+
+                <label for="desciption">Desciption</label>
+                <input type="text" name="desciption" class="box" />
+
+                <label for="price">Price</label>
+                <input type="number" name="price" class="box" />
+
+                <label for="imageUrl">Image</label>
+                <input type="text" name="imageUrl" class="box" />
+
+                <label for="type">Type of purchase</label>
+                <select name="type" id="" class="box">
+                    <option value="buy">Buy</option>
+                    <option value="sell" selected>Sell</option>
+                </select>
+
+                <input type="submit" class="btn" value="Create" />
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
