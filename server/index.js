@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const router = require('./routes');
+const router = require('./router');
 
 const app = express();
 app.set('view engine', 'hbs');
