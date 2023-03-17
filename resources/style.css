@@ -1,6 +1,7 @@
 @import url('./styles/nav.css');
 @import url('./styles/home.css');
 @import url('./styles/catalog.css');
+@import url('./styles/login.css');
 
 body {
     margin: 0;
