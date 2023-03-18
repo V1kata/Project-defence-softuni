@@ -1,24 +1,49 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+// import './style.css';
+import { NavBar } from './components/NavBar';
+import { Login } from './components/Auth/Login';
+import { Register } from './components/Auth/Register';
+import { Create } from './components/Home/Create';
+import { Edit } from './components/BidItems/Edit';
+import { Main } from './components/Home/Main';
+import { Catalog } from './components/BidItems/Catalog';
+import { Details } from './components/BidItems/Details';
+import { Profile } from './components/Home/Profile';
+import { request } from './utils/bidItemUtils';
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function requestHandler() {
+      const data = await request('get', '/bidItems');
+
+      setItems(data);
+    }
+
+    requestHandler();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+
+      <main>
+        <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path='/catalog' element={<Catalog bidItems={items} />} />
+          <Route path='/details/:itemId' element={<Details />} />
+          <Route path='/create' element={<Create />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/edit/:itemId' element={<Edit />} />
+          <Route path='/delete/:itemId' element={() => console.log('deleted')}/>
+        </Routes>
+      </main>
+    </>
   );
 }
 
