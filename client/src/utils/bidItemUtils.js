@@ -7,7 +7,7 @@ export const request = async (method, url, data) => {
     }
 
     if (data) {
-        options.headers['Content-type'] = 'aplication/json';
+        options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(data);
     }
 
