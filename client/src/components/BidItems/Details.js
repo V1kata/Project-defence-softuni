@@ -33,15 +33,18 @@ export function Details() {
                     <h3>Description: {item.description}</h3>
 
                     <div className="buttons">
-                        <a href={"/edit/" + item._id} className="btn-edit">Edit</a>
-                        <a href={"/delete/" + item._id} className="btn-delete">Delete</a>
+                        {!bids?.length ? <>
+                            <a href={"/edit/" + item._id} className="btn-edit">Edit</a>
+                            <a href={"/delete/" + item._id} className="btn-delete">Delete</a> </> :
+                        <></>}
+
                         <p className="wish-pub">You have already bidded to this item</p>
                         <a href={"/bid/" + item._id} className="btn-wish">Bid 100$</a>
                     </div>
                 </article>
 
                 <article className="details-card-image">
-                    <img src="/images/TruckBid.jpg" alt="Truck img"/>
+                    <img src={item.imageUrl} alt={item.title} />
                 </article>
 
             </article>
