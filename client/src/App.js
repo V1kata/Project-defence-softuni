@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
-// import './style.css';
 import { NavBar } from './components/NavBar';
 import { Login } from './components/Auth/Login';
 import { Register } from './components/Auth/Register';
@@ -14,6 +13,7 @@ import { Profile } from './components/Home/Profile';
 import { request } from './utils/bidItemUtils';
 
 function App() {
+  const navigation = useNavigate();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -26,6 +26,19 @@ function App() {
     requestHandler();
   }, []);
 
+  const onSubmitHandler = async (e, method, url, values, redirect) => {
+    e.preventDefault();
+    values.price = Number(values.price);
+
+    try {
+      const data = await request(method, url, values);
+      setItems(state => [...state, data]);
+      navigation(redirect);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <NavBar />
@@ -35,12 +48,12 @@ function App() {
           <Route path='/' element={<Main />} />
           <Route path='/catalog' element={<Catalog bidItems={items} />} />
           <Route path='/details/:itemId' element={<Details />} />
-          <Route path='/create' element={<Create />} />
+          <Route path='/create' element={<Create onSubmit={onSubmitHandler} />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/edit/:itemId' element={<Edit />} />
-          <Route path='/delete/:itemId' element={() => console.log('deleted')}/>
+          <Route path='/delete/:itemId' element={() => console.log('deleted')} />
         </Routes>
       </main>
     </>
