@@ -4,7 +4,12 @@ const bidItemSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        maxLength: [10, 'Title must be maximum 10 symbols']
+        maxLength: [15, 'Title must be maximum 10 symbols']
+    },
+    description: {
+        type: String,
+        required: true,
+        maxLength: [100, 'Description must be maximum 100 symbols']
     },
     price: {
         type: Number,
@@ -19,17 +24,13 @@ const bidItemSchema = new mongoose.Schema({
     },
     typeOfPurchase: {
         type: String,
+        required: true,
         validate: {
             validator: function (data) {
                 return /^(Buy|Sell)$/.test(data);
             },
-            message: props => `${props.value} is not a valid fruit color!`
+            message: props => `${props.value} is not a valid type of purchase!`
         }
-    },
-    description: {
-        type: String,
-        required: true,
-        maxLength: [100, 'Description must be maximum 100 symbols']
     },
     author: {
         type: mongoose.Types.ObjectId,
