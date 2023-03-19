@@ -52,7 +52,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/edit/:itemId' element={<Edit />} />
+          <Route path='/edit/:itemId' element={<Edit onSubmit={onSubmitHandler} />} />
           <Route path='/delete/:itemId' element={() => console.log('deleted')} />
         </Routes>
       </main>

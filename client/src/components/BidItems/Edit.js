@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { request } from "../../utils/bidItemUtils";
 
-export function Edit() {
+export function Edit({ onSubmit }) {
     const { itemId } = useParams();
     const [formValues, setFormValues] = useState({
         title: '',
@@ -28,11 +28,10 @@ export function Edit() {
         setFormValues(state => ({...state, [target.name]: target.value}));
     }
 
-
     return (
         <section className="forms">
 
-            <form method="post">
+            <form onSubmit={(e) => onSubmit(e, 'put', `/bidItems/${itemId}`, formValues, `/details/${itemId}`)}>
                 <h3>Edit</h3>
 
                 <label htmlFor="title">Title</label>
@@ -53,7 +52,7 @@ export function Edit() {
                     <option value="Sell">Sell</option>
                 </select>
 
-                <input type="submit" className="btn" value="Create" />
+                <input type="submit" className="btn" value="Edit" />
             </form>
         </section>
     )
