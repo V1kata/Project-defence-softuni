@@ -40,7 +40,7 @@ exports.updateBidItem = async (req, res) => {
     try {
         const oldBidItem = await updateBidItemById(bidItemId, req.body);
 
-        res.status(200).json({ BidItem: oldBidItem });
+        res.status(200).json({ bidItem: oldBidItem });
     } catch (err) {
         errorHandler(err, res, req);
     }

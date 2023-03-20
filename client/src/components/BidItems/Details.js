@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { request } from "../../utils/bidItemUtils";
 
@@ -9,14 +9,33 @@ export function Details() {
     useEffect(() => {
         async function requestHandler() {
             const data = await request('get', `/bidItems/${itemId}`);
-      
+
             setItem(data);
         }
 
-          requestHandler();
-    }, [itemId]);
+        requestHandler();
+    }, [itemId, item]);
+
+    const onBid = async () => {
+        item.price += 100;
+        item.bids.push('6414c36cb78b318be58dfc9f');
+
+        try {
+            const response = await request('put', `/bidItems/${itemId}`, item);
+
+            setItem(response);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     const bids = item?.bids;
+    let canBid;
+
+    if (bids) {
+        canBid = bids.find(x => x._id === '6414c36cb78b318be58dfc9f');
+    }
+
     const author = item['author']?.firstName + ' ' + item['author']?.lastName;
 
     return (
@@ -34,12 +53,17 @@ export function Details() {
 
                     <div className="buttons">
                         {!bids?.length ? <>
-                            <a href={"/edit/" + item._id} className="btn-edit">Edit</a>
-                            <a href={"/delete/" + item._id} className="btn-delete">Delete</a> </> :
-                        <></>}
+                            <Link to={"/edit/" + item._id} className="btn-edit">Edit</Link>
+                            <Link to={"/delete/" + item._id} className="btn-delete">Delete</Link> </> :
+                            <></>}
 
-                        <p className="wish-pub">You have already bidded to this item</p>
-                        <a href={"/bid/" + item._id} className="btn-wish">Bid 100$</a>
+                        {!canBid ?
+                        <>
+                            <Link onClick={onBid} className="btn-wish">Bid 100$</Link>
+                        </> :
+                        <>
+                            <p className="wish-pub">You have already bidded to this item</p>
+                        </>}
                     </div>
                 </article>
 
