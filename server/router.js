@@ -2,12 +2,16 @@ const router = require('express').Router();
 const path = require('path');
 
 const userController = require('./controllers/userController');
+const authController = require('./controllers/authController');
 const bidItemController = require('./controllers/bidItemController');
 
 // Users
 router.route('/users')
     .get(userController.getUsers)
     .post(userController.addUser);
+
+router.post('/users/register', authController.registerUser);
+router.post('/users/login');
 
 router.route('/users/:userId')
     .get(userController.getUser)

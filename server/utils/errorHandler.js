@@ -1,7 +1,9 @@
 function createErrorMessage(error) {
   return error.message.includes('Path')
     ? getMissingPropertiesErrorMessage(error?.errors || {})
-    : Object.values(error.errors)[0]?.properties?.message;
+    : error.errors
+    ? Object.values(error.errors)[0].properties?.message 
+    : error.message;
 }
 
 function errorHandler(error, res, req) {
