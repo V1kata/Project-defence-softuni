@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema(
             required: true,
             match: [/^0[1-9]{1}[0-9]{8}$/, 'Phone number is not valid!'],
         },
+        password: {
+            type: String,
+            required: true,
+        },
         posters: [{
             type: mongoose.Types.ObjectId
         }],
