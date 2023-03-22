@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+
 import { useForm } from "../../hooks/useForm";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function Register() {
+    const { onAuthSubmit } = useContext(AuthContext);
+
     const { formValues, onChangeHandler} = useForm({
         firstName: '',
         lastName: '',
@@ -10,12 +15,12 @@ export function Register() {
         phoneNumber: '',
         password: '',
         rePass: ''
-    })
+    });
 
     return (
         <section className="forms">
 
-            <form method="post">
+            <form onSubmit={(e) => onAuthSubmit(e, 'post', '/users/register', formValues)}>
                 <h3>Register</h3>
                 <label htmlFor="firstName">First name</label>
                 <input type="text" name="firstName" className="box" id="firstName" value={formValues.firstName} onChange={onChangeHandler}/>
