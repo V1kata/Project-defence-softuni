@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { request } from "../../utils/bidItemUtils";
+import { request } from '../../utils/bidItemUtils';
 
 export function Edit({ onSubmit }) {
     const { itemId } = useParams();

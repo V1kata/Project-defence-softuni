@@ -24,9 +24,10 @@ export const request = async (method, url, data) => {
             throw new Error(data.message || data.error);
         }
 
-        return data.bidItem;
+        return data;
     } catch (err) {
         alert(err.message);
         throw err;
     }
 }
+
