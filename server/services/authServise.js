@@ -55,5 +55,8 @@ exports.login = async (email, password) => {
     const payload = { _id: user._id, email: user.email, name, imageUrl: user.imageUrl, phoneNumber: user.phoneNumber };
     const token = await jwt.sign(payload, secret);
 
-    return token;
+    return {
+        token,
+        user
+    };
 }
