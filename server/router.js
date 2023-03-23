@@ -13,7 +13,6 @@ router.route('/users')
 router.post('/users/register', authController.registerUser);
 router.post('/users/login', authController.loginUser);
 router.get('/users/logout', authController.logoutUser);
-router.post('/users/updateUser/:userId', authController.updateUser);
 
 router.route('/users/:userId')
     .get(userController.getUser)
