@@ -8,7 +8,7 @@ export function Details() {
     const { itemId } = useParams();
     const [item, setItem] = useState({});
     const bidItemServise = useService(bidItemRequest);
-    const { userId } = useContext(AuthContext);
+    const { userId, userPosts } = useContext(AuthContext);
 
     useEffect(() => {
         async function requestHandler() {
@@ -34,6 +34,7 @@ export function Details() {
     }
 
     const bids = item?.bids;
+    const owner = userPosts?.find(x => x === itemId);
     let canBid;
 
     if (bids) {
@@ -56,18 +57,23 @@ export function Details() {
                     <h3>Description: {item.description}</h3>
 
                     <div className="buttons">
-                        {!bids?.length ? <>
+                        {!bids?.length && owner ? <>
                             <Link to={"/edit/" + item._id} className="btn-edit">Edit</Link>
                             <Link to={"/delete/" + item._id} className="btn-delete">Delete</Link> </> :
-                            <></>}
+                            <></>
+                        }
 
-                        {!canBid ?
-                        <>
-                            <Link onClick={onBid} className="btn-wish">Bid 100$</Link>
-                        </> :
-                        <>
-                            <p className="wish-pub">You have already bidded to this item</p>
-                        </>}
+                        {owner || !userId ?
+                            <></> :
+                            !canBid ?
+                                <>
+                                    <Link onClick={onBid} className="btn-wish">Bid 100$</Link>
+                                </> :
+                                <>
+                                    <p className="wish-pub">You have already bidded to this item</p>
+                                </>
+                        }
+
                     </div>
                 </article>
 
