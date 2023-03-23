@@ -4,13 +4,8 @@ const authServise = require('../services/authServise');
 exports.registerUser = async (req, res) => {
     try {
         const { token, user } = await authServise.register(req.body);
-        const auth = {
-            name: user.firstName + " " + user.lastName,
-            _id: user._id,
-            accessToken: token,
-            imageUrl: user.imageUrl,
-            phoneNumber: user.phoneNumber
-        }
+        const auth = { ...user._doc, accessToken: token, name: user.firstName + " " + user.lastName };
+        delete auth.password
 
         req.session.userId = auth._id;
         req.session.name = auth.name;
@@ -25,14 +20,9 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
         const { token, user } = await authServise.login(email, password);
-        const auth = {
-            name: user.firstName + " " + user.lastName,
-            _id: user._id,
-            accessToken: token,
-            imageUrl: user.imageUrl,
-            phoneNumber: user.phoneNumber
-        }
 
+        const auth = { ...user._doc, accessToken: token, name: user.firstName + " " + user.lastName };
+        delete auth.password
         req.session.userId = auth._id;
         req.session.name = auth.name;
 
@@ -48,4 +38,10 @@ exports.logoutUser = (req, res) => {
     req.session.destroy();
 
     res.status(200).json({ session: null })
+}
+
+exports.updateUser = async (req, res) => {
+    const data = authServise.updateUser(req.body);
+
+    res.status(200).json({ update: data });
 }

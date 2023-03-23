@@ -60,3 +60,5 @@ exports.login = async (email, password) => {
         user
     };
 }
+
+exports.updateUser = async (id, data) => User.findByIdAndUpdate(id, data);
