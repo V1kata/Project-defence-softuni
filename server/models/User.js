@@ -32,7 +32,8 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
         posters: [{
-            type: mongoose.Types.ObjectId
+            type: mongoose.Types.ObjectId,
+            ref: 'bid-items'
         }],
     }
 );
