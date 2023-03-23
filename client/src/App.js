@@ -11,7 +11,6 @@ import { Main } from './components/Home/Main';
 import { Catalog } from './components/BidItems/Catalog';
 import { Details } from './components/BidItems/Details';
 import { Profile } from './components/Home/Profile';
-import { request } from './utils/bidItemUtils';
 import { Logout } from './components/Auth/Logout';
 import { bidItemRequest } from './services/bidItemService';
 import { authServiseFactory } from './services/authService';
@@ -31,29 +30,18 @@ function App() {
     }
 
     requestHandler();
-  }, []);
-
-  const onSubmitHandler = async (e, method, url, values, redirect) => {
-    e.preventDefault();
-    values.price = Number(values.price);
-
-    try {
-      const data = await request(method, url, values);
-
-      setItems(state => [...state, data.biItem]);
-      navigation(redirect);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  }, [items, bidItemServise]);
 
   const onCreateHandler = async (values) => {
     values.price = Number(values.price);
+    values.author = user._id;
 
     try {
       const data = await bidItemServise.createItem(values);
+      user.posters.push(data._id);
+      await authServise.update(user._id, user);
 
-      setItems(state => [...state, data.biItem]);
+      setItems(state => [...state, data]);
       navigation('/catalog');
     } catch (err) {
       console.log(err);
@@ -66,7 +54,7 @@ function App() {
     try {
       const data = await bidItemServise.editItem(values._id, values);
 
-      setItems(state => [...state, data.biItem]);
+      setItems(state => state.map(x => x._id === data._id ? data : x));
       navigation('/catalog');
     } catch (err) {
       console.log(err);
@@ -112,6 +100,8 @@ function App() {
     userId: user._id,
     token: user.accessToken,
     userEmail: user.email,
+    userPosts: user.posters,
+    userName: user.name,
     isAuth: !!user.accessToken,
   }
 

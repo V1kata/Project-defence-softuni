@@ -1,7 +1,6 @@
 import { BidItem } from "./BidItem";
 
 export function Catalog({ bidItems }) {
-
     return (
         <>
          <section className="container">
