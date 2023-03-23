@@ -13,7 +13,8 @@ exports.registerUser = async (req, res) => {
         }
 
         req.session.userId = auth._id;
-        req.session.username = auth.name;      
+        req.session.name = auth.name;
+        console.log(req.session)
 
         res.status(200).json({ auth });
     } catch (err) {
@@ -34,7 +35,9 @@ exports.loginUser = async (req, res) => {
         }
 
         req.session.userId = auth._id;
-        req.session.username = auth.name;
+        req.session.name = auth.name;
+
+        console.log(req.session)
 
         res.status(200).json({ auth });
     } catch (err) {
@@ -44,6 +47,8 @@ exports.loginUser = async (req, res) => {
 
 exports.logoutUser = (req, res) => {
     req.session.userId = null;
-    req.session.username = null;
+    req.session.name = null;
     req.session.destroy();
+
+    res.status(200).json({ session: null })
 }

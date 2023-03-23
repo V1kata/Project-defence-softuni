@@ -5,9 +5,9 @@ import { useForm } from "../../hooks/useForm";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export function Register() {
-    const { onAuthSubmit } = useContext(AuthContext);
+    const { onRegisterSubmit } = useContext(AuthContext);
 
-    const { formValues, onChangeHandler} = useForm({
+    const { formValues, onChangeHandler, onSubmit} = useForm({
         firstName: '',
         lastName: '',
         email: '',
@@ -15,12 +15,12 @@ export function Register() {
         phoneNumber: '',
         password: '',
         rePass: ''
-    });
+    }, onRegisterSubmit);
 
     return (
         <section className="forms">
 
-            <form onSubmit={(e) => onAuthSubmit(e, 'post', '/users/register', formValues)}>
+            <form onSubmit={onSubmit}>
                 <h3>Register</h3>
                 <label htmlFor="firstName">First name</label>
                 <input type="text" name="firstName" className="box" id="firstName" value={formValues.firstName} onChange={onChangeHandler}/>

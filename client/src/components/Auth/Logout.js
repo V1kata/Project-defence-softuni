@@ -6,7 +6,11 @@ export const Logout = () => {
     const { onLogout } = useContext(AuthContext);
 
     useEffect(() => {
-        onLogout();
+        async function logout() {
+            await onLogout();
+        }
+
+        logout();
     }, [onLogout]);
 
     return <Navigate to="/" /> 

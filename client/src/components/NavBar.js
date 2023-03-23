@@ -15,7 +15,7 @@ export function NavBar() {
                     <>
                         <li><Link to="/create">Create</Link></li>
                         <li><Link to="/profile">Profile</Link></li>
-                        <li><Link>Logout</Link></li>
+                        <li><Link to="/logout">Logout</Link></li>
                     </> :
                     <>
                         <li><Link to="/login">Login</Link></li>
