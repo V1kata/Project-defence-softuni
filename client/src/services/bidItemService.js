@@ -10,19 +10,19 @@ export function bidItemRequest(token) {
     }
 
     const getById = async (id) => {
-        const data = request.get(`/bidItems/${id}`);
+        const data = await request.get(`/bidItems/${id}`);
 
         return data.bidItem;
     }
 
     const createItem = async (value) => {
-        const data = request.post('/bidItems', value);
+        const data = await request.post('/bidItems', value);
 
         return data.bidItem;
     }
 
     const editItem = async (id, value) => {
-        const data = request.post(`/bidItems/${id}`, value);
+        const data = await request.post(`/bidItems/${id}`, value);
 
         return data.bidItem;
     }
