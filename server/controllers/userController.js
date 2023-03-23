@@ -26,7 +26,8 @@ exports.getUser = async (req, res) => {
     const { userId } = req.params;
 
     try {
-        const user = await getUserById(userId);
+        const user = await getUserById(userId).populate('posters');
+        delete user.password;
 
         res.status(200).json({ user })
     } catch (err) {
