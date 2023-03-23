@@ -1,37 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import { useForm } from '../../hooks/useForm';
+import { useServise } from '../../hooks/useService';
 import { request } from '../../utils/bidItemUtils';
+import { bidItemRequest } from "../../services/bidItemService";
 
-export function Edit({ onSubmit }) {
+export function Edit({ onEdit }) {
     const { itemId } = useParams();
-    const [formValues, setFormValues] = useState({
+    const bidItemServise = useServise(bidItemRequest);
+    const {formValues, onChangeHandler, onSubmit, changeValues} = useForm({
+        _id: '',
         title: '',
         description: '',
         price: '',
         imageUrl: '',
         typeOfPurchase: ''
-    });
+    }, onEdit);
 
     useEffect(() => {
         async function requestHandler() {
-            const data = await request('get', `/bidItems/${itemId}`);
+            const data = await bidItemRequest.getById(itemId);
 
-            setFormValues(state => ({...data}));
+            changeValues(data);
         }
 
         requestHandler();
     }, [itemId]);
 
-    const onChangeHandler = (e) => {
-        const target = e.target;
-
-        setFormValues(state => ({...state, [target.name]: target.value}));
-    }
-
     return (
         <section className="forms">
 
-            <form onSubmit={(e) => onSubmit(e, 'put', `/bidItems/${itemId}`, formValues, `/details/${itemId}`)}>
+            <form onSubmit={onSubmit}>
                 <h3>Edit</h3>
 
                 <label htmlFor="title">Title</label>

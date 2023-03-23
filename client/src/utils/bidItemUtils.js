@@ -1,6 +1,6 @@
 const host = 'http://localhost:5000';
 
-export const request = async (method, url, data) => {
+export const request = async (method, token, url, data) => {
     const options = {
         method,
         headers: {}
@@ -9,6 +9,10 @@ export const request = async (method, url, data) => {
     if (data) {
         options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(data);
+    }
+
+    if (token) {
+        options.headers['X-Authorization'] = token;
     }
 
     try {
@@ -31,3 +35,12 @@ export const request = async (method, url, data) => {
     }
 }
 
+export const requestFactory = (token) => {
+    return {
+        get: request.bind(null, 'GET', token),
+        post: request.bind(null, 'POST', token),
+        put: request.bind(null, 'PUT', token),
+        patch: request.bind(null, 'PATCH', token),
+        delete: request.bind(null, 'DELETE', token),
+    }
+};

@@ -1,18 +1,18 @@
 import { useForm } from "../../hooks/useForm";
 
-export function Create({ onSubmit }) {
-    const { formValues, onChangeHandler } = useForm({
+export function Create({ onCreate }) {
+    const { formValues, onChangeHandler, onSubmit } = useForm({
         title: '',
         description: '',
         price: '',
         imageUrl: '',
         typeOfPurchase: 'Sell'
-    });
+    }, onCreate);
 
     return (
         <section className="forms">
 
-            <form onSubmit={(e) => onSubmit(e, 'post', '/bidItems', formValues, '/catalog')}>
+            <form onSubmit={onSubmit}>
                 <h3>Create</h3>
 
                 <label htmlFor="title">Title</label>

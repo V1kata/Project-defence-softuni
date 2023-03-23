@@ -1,14 +1,18 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { request } from "../../utils/bidItemUtils";
+import { useState, useEffect, useContext } from 'react';
+import { bidItemRequest } from "../../services/bidItemService";
+import { useService } from '../../hooks/useService';
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function Details() {
     const { itemId } = useParams();
     const [item, setItem] = useState({});
+    const bidItemServise = useService(bidItemRequest);
+    const { userId } = useContext(AuthContext);
 
     useEffect(() => {
         async function requestHandler() {
-            const data = await request('get', `/bidItems/${itemId}`);
+            const data = await bidItemServise.getById(itemId);
 
             setItem(data);
         }
@@ -18,10 +22,10 @@ export function Details() {
 
     const onBid = async () => {
         item.price += 100;
-        item.bids.push('6414c36cb78b318be58dfc9f');
+        item.bids.push(userId);
 
         try {
-            const response = await request('put', `/bidItems/${itemId}`, item);
+            const response = await bidItemServise.editItem(itemId, item);
 
             setItem(response);
         } catch (err) {
@@ -33,7 +37,7 @@ export function Details() {
     let canBid;
 
     if (bids) {
-        canBid = bids.find(x => x._id === '6414c36cb78b318be58dfc9f');
+        canBid = bids.find(x => x._id === userId);
     }
 
     const author = item['author']?.firstName + ' ' + item['author']?.lastName;
