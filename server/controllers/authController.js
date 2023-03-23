@@ -12,6 +12,9 @@ exports.registerUser = async (req, res) => {
             phoneNumber: user.phoneNumber
         }
 
+        req.session.userId = auth._id;
+        req.session.username = auth.name;      
+
         res.status(200).json({ auth });
     } catch (err) {
         errorHandler(err, res, req);
@@ -19,9 +22,9 @@ exports.registerUser = async (req, res) => {
 }
 
 exports.loginUser = async (req, res) => {
-    
+    const { email, password } = req.body;
     try {
-        const { token, user } = await authServise.login(req.body);
+        const { token, user } = await authServise.login(email, password);
         const auth = {
             name: user.firstName + " " + user.lastName,
             _id: user._id,
@@ -30,8 +33,17 @@ exports.loginUser = async (req, res) => {
             phoneNumber: user.phoneNumber
         }
 
+        req.session.userId = auth._id;
+        req.session.username = auth.name;
+
         res.status(200).json({ auth });
     } catch (err) {
         errorHandler(err, res, req);
     }
+}
+
+exports.logoutUser = (req, res) => {
+    req.session.userId = null;
+    req.session.username = null;
+    req.session.destroy();
 }

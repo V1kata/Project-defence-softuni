@@ -10,6 +10,7 @@ router.route('/users')
     .get(userController.getUsers)
     .post(userController.addUser);
 
+router.get('/users/logout', authController.logoutUser);    
 router.post('/users/register', authController.registerUser);
 router.post('/users/login', authController.loginUser);
 
