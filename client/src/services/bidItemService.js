@@ -22,7 +22,7 @@ export function bidItemRequest(token) {
     }
 
     const editItem = async (id, value) => {
-        const data = await request.post(`/bidItems/${id}`, value);
+        const data = await request.put(`/bidItems/${id}`, value);
 
         return data.bidItem;
     }
