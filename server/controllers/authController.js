@@ -14,7 +14,6 @@ exports.registerUser = async (req, res) => {
 
         req.session.userId = auth._id;
         req.session.name = auth.name;
-        console.log(req.session)
 
         res.status(200).json({ auth });
     } catch (err) {
@@ -36,8 +35,6 @@ exports.loginUser = async (req, res) => {
 
         req.session.userId = auth._id;
         req.session.name = auth.name;
-
-        console.log(req.session)
 
         res.status(200).json({ auth });
     } catch (err) {
