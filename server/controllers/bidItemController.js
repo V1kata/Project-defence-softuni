@@ -13,7 +13,7 @@ exports.getBidItems = async (req, res) => {
 
 exports.addBidItem = async (req, res) => {
     try {
-        const data = {...req.body, author: '641209537f5f3f55d5e47561', bids: []}
+        const data = {...req.body, bids: []}
         const bidItem = await createBidItem(data);
 
         res.status(200).json({ bidItem });
