@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useForm } from '../../hooks/useForm';
-import { useServise } from '../../hooks/useService';
-import { request } from '../../utils/bidItemUtils';
+import { useService } from '../../hooks/useService';
 import { bidItemRequest } from "../../services/bidItemService";
 
 export function Edit({ onEdit }) {
     const { itemId } = useParams();
-    const bidItemServise = useServise(bidItemRequest);
+    const bidItemServise = useService(bidItemRequest);
     const {formValues, onChangeHandler, onSubmit, changeValues} = useForm({
         _id: '',
         title: '',
@@ -19,7 +18,7 @@ export function Edit({ onEdit }) {
 
     useEffect(() => {
         async function requestHandler() {
-            const data = await bidItemRequest.getById(itemId);
+            const data = await bidItemServise.getById(itemId);
 
             changeValues(data);
         }
@@ -36,7 +35,7 @@ export function Edit({ onEdit }) {
                 <label htmlFor="title">Title</label>
                 <input type="text" id="title" name="title" className="box" value={formValues.title} onChange={onChangeHandler} />
 
-                <label htmlFor="description">description</label>
+                <label htmlFor="description">Description</label>
                 <input type="text" id="description" name="description" className="box" value={formValues.description} onChange={onChangeHandler} />
 
                 <label htmlFor="price">Price</label>
