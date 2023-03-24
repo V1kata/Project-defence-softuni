@@ -27,10 +27,18 @@ export function bidItemRequest(token) {
         return data.bidItem;
     }
 
+    const deleteItem = async (id) => {
+        const data = await request.delete(`/bidItems/${id}`);
+        console.log(data);
+
+        return data;
+    }
+
     return {
         getAll,
         getById,
         createItem,
-        editItem
+        editItem,
+        deleteItem
     };
 }

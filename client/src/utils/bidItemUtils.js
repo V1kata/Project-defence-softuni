@@ -1,6 +1,6 @@
 const host = 'http://localhost:5000';
 
-export const request = async (method, token, url, data) => {
+const request = async (method, token, url, data) => {
     const options = {
         method,
         headers: {}
@@ -37,10 +37,9 @@ export const request = async (method, token, url, data) => {
 
 export const requestFactory = (token) => {
     return {
-        get: request.bind(null, 'GET', token),
-        post: request.bind(null, 'POST', token),
-        put: request.bind(null, 'PUT', token),
-        patch: request.bind(null, 'PATCH', token),
-        delete: request.bind(null, 'DELETE', token),
+        get: request.bind(null, 'get', token),
+        post: request.bind(null, 'post', token),
+        put: request.bind(null, 'put', token),
+        delete: request.bind(null, 'delete', token),
     }
 };

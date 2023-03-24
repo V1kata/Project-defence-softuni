@@ -14,6 +14,7 @@ import { Profile } from './components/Home/Profile';
 import { Logout } from './components/Auth/Logout';
 import { bidItemRequest } from './services/bidItemService';
 import { authServiseFactory } from './services/authService';
+import { DeleteItem } from './components/BidItems/DeleteItem';
 
 function App() {
   const navigation = useNavigate();
@@ -56,6 +57,16 @@ function App() {
 
       setItems(state => state.map(x => x._id === data._id ? data : x));
       navigation('/catalog');
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const onDeleteHandler = async (id) => {
+    try {
+      await bidItemServise.deleteItem(id);
+
+      setItems(state => state.filter(x => x._id !== id));
     } catch (err) {
       console.log(err);
     }
@@ -121,7 +132,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/logout' element={<Logout />} />
             <Route path='/edit/:itemId' element={<Edit onEdit={onEditHandler} />} />
-            <Route path='/delete/:itemId' element={() => console.log('deleted')} />
+            <Route path='/delete/:itemId' element={<DeleteItem onDelete={onDeleteHandler} />} />
           </Routes>
         </main>
       </>
