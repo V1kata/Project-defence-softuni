@@ -7,6 +7,7 @@ exports.registerUser = async (req, res) => {
         const auth = { ...user._doc, accessToken: token, name: user.firstName + " " + user.lastName };
         delete auth.password
 
+        req.session.token = token;
         req.session.userId = auth._id;
         req.session.name = auth.name;
 
@@ -22,7 +23,9 @@ exports.loginUser = async (req, res) => {
         const { token, user } = await authServise.login(email, password);
 
         const auth = { ...user._doc, accessToken: token, name: user.firstName + " " + user.lastName };
-        delete auth.password
+        delete auth.password;
+
+        req.session.token = token;
         req.session.userId = auth._id;
         req.session.name = auth.name;
 

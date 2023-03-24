@@ -26,7 +26,7 @@ exports.getBidItem = async (req, res) => {
     const { bidItemId } = req.params;
 
     try {
-        const bidItem = await getBidItemById(bidItemId).populate('author').populate('bids');
+        const bidItem = await getBidItemById(bidItemId).populate('author');
 
         res.status(200).json({ bidItem })
     } catch (err) {
