@@ -2,19 +2,20 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import { AuthContext } from './contexts/AuthContext';
+import { validateFields, validateRegisterPasswords } from './utils/validateFields';
 import { NavBar } from './components/NavBar';
-import { Login } from './components/Auth/Login';
-import { Register } from './components/Auth/Register';
-import { Create } from './components/Home/Create';
-import { Edit } from './components/BidItems/Edit';
 import { Main } from './components/Home/Main';
-import { Catalog } from './components/BidItems/Catalog';
-import { Details } from './components/BidItems/Details';
+import { Create } from './components/Home/Create';
 import { Profile } from './components/Home/Profile';
+import { Register } from './components/Auth/Register';
+import { Login } from './components/Auth/Login';
 import { Logout } from './components/Auth/Logout';
+import { Catalog } from './components/BidItems/Catalog';
+import { Edit } from './components/BidItems/Edit';
+import { DeleteItem } from './components/BidItems/DeleteItem';
+import { Details } from './components/BidItems/Details';
 import { bidItemRequest } from './services/bidItemService';
 import { authServiseFactory } from './services/authService';
-import { DeleteItem } from './components/BidItems/DeleteItem';
 
 function App() {
   const navigation = useNavigate();
@@ -35,10 +36,11 @@ function App() {
   }, [items, bidItemServise]);
 
   const onCreateHandler = async (values) => {
-    values.price = Number(values.price);
-    values.author = user._id;
-
     try {
+      validateFields(values);
+      values.price = Number(values.price);
+      values.author = user._id;
+      
       const data = await bidItemServise.createItem(values);
       user.posters.push(data._id);
       await authServise.update(user._id, user);
@@ -51,9 +53,10 @@ function App() {
   }
 
   const onEditHandler = async (values) => {
-    values.price = Number(values.price);
-
     try {
+      validateFields(values);
+
+      values.price = Number(values.price);
       const data = await bidItemServise.editItem(values._id, values);
 
       setItems(state => state.map(x => x._id === data._id ? data : x));
@@ -74,11 +77,10 @@ function App() {
   }
 
   const onRegisterSubmit = async (value) => {
-    if (value.password !== value.rePass) {
-      errorHandler({ message: 'Passwrod missmatch'});
-    }
-
     try {
+      validateFields(value);
+      validateRegisterPasswords(value);
+
       const data = await authServise.register(value);
       setUser(data.auth);
 
@@ -90,6 +92,8 @@ function App() {
 
   const onLoginSubmit = async (value) => {
     try {
+      validateFields(value);
+
       const data = await authServise.login(value);
       setUser(data.auth);
 

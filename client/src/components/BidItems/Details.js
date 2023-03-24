@@ -26,6 +26,7 @@ export function Details() {
 
         try {
             const response = await bidItemServise.editItem(itemId, item);
+            console.log(response);
 
             setItem(response);
         } catch (err) {
@@ -38,7 +39,7 @@ export function Details() {
     let canBid;
 
     if (bids) {
-        canBid = bids.find(x => x._id === userId);
+        canBid = bids.find(x => x === userId);
     }
 
     const author = item['author']?.firstName + ' ' + item['author']?.lastName;
