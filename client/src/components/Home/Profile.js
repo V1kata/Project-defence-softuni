@@ -3,6 +3,7 @@ import { useService } from "../../hooks/useService";
 import { authServiseFactory } from "../../services/authService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ProfileItem } from "./ProfileItem";
+import { Link } from "react-router-dom";
 
 export function Profile() {
     const [user, setUser] = useState({});
@@ -37,7 +38,10 @@ export function Profile() {
             </div>
 
             <div className="auction-images">
-                {user['posters'] && user['posters'].map(x => <ProfileItem key={x._id} {...x} />)}
+                {user['posters']?.length ?
+                    user['posters'].map(x => <ProfileItem key={x._id} {...x} />) :
+                    <p className="noposts">You have no posts yet! Try and create some here {'=>'} <Link to="/create">Create</Link></p>
+                }
             </div>
         </section>
     );

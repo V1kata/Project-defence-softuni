@@ -35,3 +35,18 @@
 .photo img:hover {
     box-shadow: none;
 }
+
+.noposts {
+    font-size: 50px;
+    color: white;
+}
+
+.noposts a {
+    color: #8fd8be;
+    text-decoration: none;
+}
+
+.noposts a:hover {
+    color: aqua;
+    text-decoration: underline;
+}
