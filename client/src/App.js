@@ -18,6 +18,7 @@ import { DeleteItem } from './components/BidItems/DeleteItem';
 
 function App() {
   const navigation = useNavigate();
+  const [error, setError] = useState(null);
   const [items, setItems] = useState([]);
   const [user, setUser] = useState({});
   const bidItemServise = bidItemRequest(user?.accessToken);
@@ -45,7 +46,7 @@ function App() {
       setItems(state => [...state, data]);
       navigation('/catalog');
     } catch (err) {
-      console.log(err);
+      errorHandler(err);
     }
   }
 
@@ -58,7 +59,7 @@ function App() {
       setItems(state => state.map(x => x._id === data._id ? data : x));
       navigation('/catalog');
     } catch (err) {
-      console.log(err);
+      errorHandler(err);
     }
   }
 
@@ -68,13 +69,13 @@ function App() {
 
       setItems(state => state.filter(x => x._id !== id));
     } catch (err) {
-      console.log(err);
+      errorHandler(err);
     }
   }
 
   const onRegisterSubmit = async (value) => {
     if (value.password !== value.rePass) {
-      console.log('Passwords missmatch');
+      errorHandler({ message: 'Passwrod missmatch'});
     }
 
     try {
@@ -83,7 +84,7 @@ function App() {
 
       navigation('/catalog');
     } catch (err) {
-      console.log(err);
+      errorHandler(err);
     }
   }
 
@@ -94,7 +95,7 @@ function App() {
 
       navigation('/catalog');
     } catch (err) {
-      console.log(err);
+      errorHandler(err);
     }
   }
 
@@ -102,6 +103,14 @@ function App() {
     await authServise.logout();
 
     setUser({});
+  }
+
+  const errorHandler = async (err) => {
+    setError(err.message);
+
+    setTimeout(() => {
+      setError(null);
+    }, 2000)
   }
 
   const context = {
@@ -122,6 +131,16 @@ function App() {
         <NavBar />
 
         <main>
+
+          {error ?
+            <>
+              <div className="errorContainer">
+                <p>{error}</p>
+              </div>
+            </> :
+            <></>
+          }
+
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/catalog' element={<Catalog bidItems={items} />} />

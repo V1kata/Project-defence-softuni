@@ -30,7 +30,6 @@ const request = async (method, token, url, data) => {
 
         return data;
     } catch (err) {
-        alert(err.message);
         throw err;
     }
 }
