@@ -47,10 +47,10 @@ exports.updateBidItem = async (req, res) => {
 }
 
 exports.deleteBidItem = async (req, res) => {
-    const { bidItem } = req.params;
+    const { bidItemId } = req.params;
 
     try {
-        const oldBidItem = await deleteBidItemById(bidItem);
+        const oldBidItem = await deleteBidItemById(bidItemId);
 
         res.status(200).json({ bidItem: oldBidItem });
     } catch (err) {
