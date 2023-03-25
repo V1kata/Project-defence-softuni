@@ -128,3 +128,44 @@
 .btn-wish:hover {
     background-color: #4b4d50;
 }
+
+
+
+.bidForm-container {
+    display: flex;
+    position: absolute;
+    right: 50%;
+    margin-right: -300px;
+    align-items: center;
+    width: 600px;
+    height: 30px;
+    padding: 10px 0;
+    background-color: rgba(228, 163, 120, 0.87);
+}
+
+.bidForm-container form {
+    display: flex;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#bidItem-input {
+    height: 25px;
+    width: 450px;
+    background: none;
+}
+
+.bidForm-container button {
+    right: 30px;
+    color: #0285fff8;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    background-color: inherit;
+}
+
+.bidForm-container button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #4b4d50;
+}

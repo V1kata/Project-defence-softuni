@@ -1,27 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from 'react';
-import { bidItemRequest } from "../../services/bidItemService";
 import { useService } from '../../hooks/useService';
+import { useForm } from "../../hooks/useForm";
 import { AuthContext } from "../../contexts/AuthContext";
+import { bidItemRequest } from "../../services/bidItemService";
+import { authServiseFactory } from "../../services/authService";
 
 export function Details() {
     const { itemId } = useParams();
-    const [item, setItem] = useState({});
-    const bidItemServise = useService(bidItemRequest);
     const { userId, userPosts } = useContext(AuthContext);
+    const [item, setItem] = useState({});
+    const [bid, setBid] = useState(false);
+    const [lastBidder, setLastBidder] = useState('');
+    const bidItemServise = useService(bidItemRequest);
+    const authService = useService(authServiseFactory);
 
-    useEffect(() => {
-        async function requestHandler() {
-            const data = await bidItemServise.getById(itemId);
-
-            setItem(data);
-        }
-
-        requestHandler();
-    }, [itemId, item]);
-
-    const onBid = async () => {
-        item.price += 100;
+    const onBid = async (formValues) => {
+        console.log(formValues);
+        item.price += Number(formValues.bidMoney);
         item.bids.push(userId);
 
         try {
@@ -34,8 +30,30 @@ export function Details() {
         }
     }
 
+    const { formValues, onChangeHandler, onSubmit } = useForm({ bidMoney: '' }, onBid);
+
+    useEffect(() => {
+        async function requestHandler() {
+            const data = await bidItemServise.getById(itemId);
+
+            setItem(data);
+        }
+
+        requestHandler();
+    }, [itemId, item]);
+
     const bids = item?.bids;
     const owner = userPosts?.find(x => x === itemId);
+    let winnersId = bids?.slice(-1);
+    
+    if (winnersId) {
+        const request = async () => {
+            let { user } = await authService.getUser(winnersId);
+            setLastBidder(user['firstName'] + " " + user['lastName']);
+        }
+        
+        request();
+    }
     let canBid;
 
     if (bids) {
@@ -56,6 +74,7 @@ export function Details() {
                     <h3>Bids made: {bids && bids.length}</h3>
                     <h3>Type of purchase: {item.typeOfPurchase}</h3>
                     <h3>Description: {item.description}</h3>
+                    <h3>Last bidder's name: {lastBidder}</h3>
 
                     <div className="buttons">
                         {!bids?.length && owner ? <>
@@ -68,7 +87,7 @@ export function Details() {
                             <></> :
                             !canBid ?
                                 <>
-                                    <Link onClick={onBid} className="btn-wish">Bid 100$</Link>
+                                    <Link onClick={() => setBid(true)} className="btn-wish">Bid</Link>
                                 </> :
                                 <>
                                     <p className="wish-pub">You have already bidded to this item</p>
@@ -83,6 +102,20 @@ export function Details() {
                 </article>
 
             </article>
+
+            {bid ?
+                <>
+                    <div className="bidForm-container">
+                        <form onSubmit={onSubmit}>
+                            <input type="number" name="bidMoney" id="bidItem-input" placeholder="Money you want to bid"
+                                value={formValues.bidMoney} onChange={onChangeHandler} />
+                            <button type="submit">Bid</button>
+                            <button className="close" onClick={() => setBid(false)}>Close</button>
+                        </form>
+                    </div>
+                </> :
+                <></>
+            }
         </section>
     )
 }
