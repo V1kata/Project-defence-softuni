@@ -128,3 +128,90 @@
 .btn-wish:hover {
     background-color: #4b4d50;
 }
+
+.bidForm-container {
+    display: flex;
+    position: absolute;
+    right: 50%;
+    margin-right: -300px;
+    align-items: center;
+    width: 600px;
+    height: 30px;
+    padding: 10px 0;
+    background-color: rgba(228, 163, 120, 0.87);
+}
+
+.bidForm-container form {
+    display: flex;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+#bidItem-input {
+    height: 25px;
+    width: 450px;
+    background: none;
+}
+
+.bidForm-container button {
+    right: 30px;
+    color: #0285fff8;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    background-color: inherit;
+}
+
+.bidForm-container button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #4b4d50;
+}
+
+/* .bidForm-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    background-color: white;
+}
+
+.bidForm-container button {
+    position: absolute;
+    right: 30px;
+    color: #1d92ffcb;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+#bidItem-textarea {
+    position: absolute;
+    left: 30px;
+    width: 85%;
+    resize: none;
+    overflow: hidden;
+    height: 20px;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #262626;
+    background: none;
+}
+
+textarea.text::placeholder {
+    color: #777;
+}
+
+.bidForm-container form label {
+    display: none;
+}
+
+.bidForm-container form {
+    display: flex;
+    margin-bottom: 15px;
+} */
