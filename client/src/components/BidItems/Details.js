@@ -25,6 +25,7 @@ export function Details() {
             console.log(response);
 
             setItem(response);
+            setBid(false);
         } catch (err) {
             console.log(err);
         }
@@ -74,7 +75,7 @@ export function Details() {
                     <h3>Bids made: {bids && bids.length}</h3>
                     <h3>Type of purchase: {item.typeOfPurchase}</h3>
                     <h3>Description: {item.description}</h3>
-                    <h3>Last bidder's name: {lastBidder}</h3>
+                    {!lastBidder && <h3>Last bidder's name: {lastBidder}</h3>}
 
                     <div className="buttons">
                         {!bids?.length && owner ? <>
