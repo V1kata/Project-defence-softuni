@@ -125,6 +125,7 @@ function App() {
     token: user.accessToken,
     userEmail: user.email,
     userPosts: user.posters,
+    userImage: user.imageUrl, 
     userName: user.name,
     isAuth: !!user.accessToken,
     isAuthMiddleware: () => !user.accessToken ? navigation('/login') : ''
@@ -151,7 +152,7 @@ function App() {
             <Route path='/catalog' element={<Catalog bidItems={items} />} />
             <Route path='/details/:itemId' element={<Details />} />
             <Route path='/create' element={<Create onCreate={onCreateHandler} />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<Profile bidItems={items} />} />
             <Route path='/edit/:itemId' element={<Edit onEdit={onEditHandler} />} />
             <Route path='/delete/:itemId' element={<DeleteItem onDelete={onDeleteHandler} />} />
             <Route path='/login' element={<Login />} />

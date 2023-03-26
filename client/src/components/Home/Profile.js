@@ -5,42 +5,32 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ProfileItem } from "./ProfileItem";
 import { Link } from "react-router-dom";
 
-export function Profile() {
-    const { userId, isAuthMiddleware } = useContext(AuthContext);
+export function Profile({ bidItems }) {
+    const { userId, userEmail, userPosts, userName, isAuthMiddleware, userImage } = useContext(AuthContext);
     isAuthMiddleware();
-    const [user, setUser] = useState({});
+
     const authService = useService(authServiseFactory);
 
-    useEffect(() => {
-        async function request() {
-            const data = await authService.getUser(userId);
-
-            setUser(data.user);
-        }
-
-        request();
-    }, []);
-
-    const name = user?.firstName + ' ' + user?.lastName;
-    const posts = user.posters?.length;
+    const posts = bidItems.filter(x => x.author == userId);
+    // console.log(posts)
 
     return (
         <section>
             <div className="data">
                 <div className="profile-img">
-                    <img src={user.imageUrl} alt={name} />
+                    <img src={userImage} alt={userName} />
                 </div>
 
                 <div className="personal-data">
-                    <p>Name: {name}</p>
-                    <p>Email: {user.email}</p>
-                    <p>{posts} {posts === 1 ? 'post' : 'posts'}</p>
+                    <p>Name: {userName}</p>
+                    <p>Email: {userEmail}</p>
+                    <p>{userPosts?.length} {userPosts?.length === 1 ? 'post' : 'posts'}</p>
                 </div>
             </div>
 
             <div className="auction-images">
-                {user['posters']?.length ?
-                    user['posters'].map(x => <ProfileItem key={x._id} {...x} />) :
+                {posts?.length ?
+                    posts.map(x => <ProfileItem key={x._id} {...x} />) :
                     <p className="noposts">You have no posts yet! Try and create some here {'=>'} <Link to="/create">Create</Link></p>
                 }
             </div>
