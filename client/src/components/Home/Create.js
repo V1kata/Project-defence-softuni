@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { useForm } from "../../hooks/useForm";
+import { AuthContext } from '../../contexts/AuthContext';
 
 export function Create({ onCreate }) {
+    const { isAuthMiddleware } = useContext(AuthContext);
+    isAuthMiddleware();
+
     const { formValues, onChangeHandler, onSubmit } = useForm({
         title: '',
         description: '',

@@ -6,8 +6,9 @@ import { ProfileItem } from "./ProfileItem";
 import { Link } from "react-router-dom";
 
 export function Profile() {
+    const { userId, isAuthMiddleware } = useContext(AuthContext);
+    isAuthMiddleware();
     const [user, setUser] = useState({});
-    const { userId } = useContext(AuthContext);
     const authService = useService(authServiseFactory);
 
     useEffect(() => {
@@ -33,7 +34,7 @@ export function Profile() {
                 <div className="personal-data">
                     <p>Name: {name}</p>
                     <p>Email: {user.email}</p>
-                    <p>{posts} posts</p>
+                    <p>{posts} {posts === 1 ? 'post' : 'posts'}</p>
                 </div>
             </div>
 

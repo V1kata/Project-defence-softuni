@@ -40,7 +40,7 @@ function App() {
       validateFields(values);
       values.price = Number(values.price);
       values.author = user._id;
-      
+
       const data = await bidItemServise.createItem(values);
       user.posters.push(data._id);
       await authServise.update(user._id, user);
@@ -127,6 +127,7 @@ function App() {
     userPosts: user.posters,
     userName: user.name,
     isAuth: !!user.accessToken,
+    isAuthMiddleware: () => !user.accessToken ? navigation('/login') : ''
   }
 
   return (
@@ -151,11 +152,11 @@ function App() {
             <Route path='/details/:itemId' element={<Details />} />
             <Route path='/create' element={<Create onCreate={onCreateHandler} />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/logout' element={<Logout />} />
             <Route path='/edit/:itemId' element={<Edit onEdit={onEditHandler} />} />
             <Route path='/delete/:itemId' element={<DeleteItem onDelete={onDeleteHandler} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path='/register' element={<Register />} />
           </Routes>
         </main>
       </>
