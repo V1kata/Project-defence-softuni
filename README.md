@@ -17,17 +17,17 @@ My name is Viktor Hristov and this is my project:
 
 ## After all things are set and server is up and running, there is a brief description of the site:
 
-- There are public and private parts. As required, the public pages of the site are:
+- There are public and private parts. As required, the public pages of the site are listed below, whereas all additional pages are accessible upon registration and login.
+- Public pages:
     * Main page;
     * Catalogue page;
     * Details page.
-<br/>All additional pages are accessible upon registration and login.
 
 - After creating it's own item, the user can view, edit or delete it. Anybody, except the item owner, can bid on that item.
-Note: edit, delete operations are available, only if there are no bids on that item.
+<br />Note: edit, delete operations are available, only if there are no bids on that item.
 
 - Bidding option is available for logged in users who haven't placed a bid on that item. Each use can only bid once per item, as the last bidder is the winner.
-Note: there is no time limit implemented, therefore there is no actual winner.
+<br />Note: there is no time limit implemented, therefore there is no actual winner.
 
 - To place a bid, click the "Bid" button, followed by mini form field shown. Type amount of your choice, place the bid and you WIN ;).
 
