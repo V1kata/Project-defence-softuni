@@ -17,7 +17,7 @@ My name is Viktor Hristov and this is my project:
 
 ## After all things are set and server is up and running, there is a brief description of the site:
 
-- There are public and private parts. As required, the public pages of the site are listed below, whereas all additional pages are accessible upon registration and login.
+- There are public and private parts. As required, the public pages of the site are listed below, whereas all additional(private) pages are accessible upon registration and login.
 - Public pages:
     * Main page;
     * Catalogue page;
