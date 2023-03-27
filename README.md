@@ -21,7 +21,7 @@ My name is Viktor Hristov and this is my project:
     * Main page;
     * Catalogue page;
     * Details page.
-All additional pages are accessible upon registration and login.
+<br/>All additional pages are accessible upon registration and login.
 
 - After creating it's own item, the user can view, edit or delete it. Anybody, except the item owner, can bid on that item.
 Note: edit, delete operations are available, only if there are no bids on that item.
