@@ -4,8 +4,8 @@ My name is Viktor Hristov and this is my project:
 1) First start the server - <strong>cd server</strong>
 
 - <strong>npm install</strong> - to install all the dependencies
-- <strong>Nodemon tool:</strong>
-    * <storng>npm run dev</strong> - with nodemon;
+- Nodemon tool:
+    * <strong>npm run dev</strong> - with nodemon;
     * <strong>npm start</strong> - without nodemon.
 - Since the server is made with express and MongoDB, below you may find a list with 3 predefined users(like in the training server) and bidItems in the <strong>users.json</strong> and <strong>bidItems.json</strong>:
     * peter@abv.bg : 123456
