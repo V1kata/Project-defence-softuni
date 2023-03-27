@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "6414c41007e446aa50b1edb3"
+  },
+  "title": "Truck",
+  "price": 5000,
+  "imageUrl": "https://www.peterbilt.com/sites/default/files/2022-05/homepage_ev.jpg",
+  "typeOfPurchase": "Sell",
+  "description": "Super nice truck",
+  "author": {
+    "$oid": "641c03e46713322d00d3658e"
+  },
+  "bids": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6416dfd96b65ea8dec798afa"
+  },
+  "title": "House",
+  "description": "Big brown 2 story house",
+  "price": 3700,
+  "imageUrl": "https://cdn.houseplansservices.com/content/ivkicv330ndilq9r6bhiha71qn/w575.jpg?v=9",
+  "typeOfPurchase": "Sell",
+  "author": {
+    "$oid": "641c03e46713322d00d3658e"
+  },
+  "bids": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6417568f139234e93bb1ac7e"
+  },
+  "title": "Rubik's cube",
+  "description": "Standart Rubicks cube 3X3",
+  "price": 310,
+  "imageUrl": "https://media.ipassio.com/media/blog/benefits-of-solving-rubiks-cube/blog_icon/benefits-of-solving-rubiks-cube.jpg",
+  "typeOfPurchase": "Sell",
+  "author": {
+    "$oid": "641c8a0823880ed658c66b0a"
+  },
+  "bids": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641c89c023880ed658c66845"
+  },
+  "title": "Bycicle cards",
+  "description": "Original Bycicle cards",
+  "price": 150,
+  "imageUrl": "https://images.ctfassets.net/sm166qdr1jca/79nx3RZ2aeXa4CQA9S1LUP/5ca94a8bf861cba2f962dae578b676f9/Shin_Lim_Portrait.jpg",
+  "typeOfPurchase": "Sell",
+  "author": {
+    "$oid": "641c8a0823880ed658c66b0a"
+  },
+  "bids": [
+    {
+      "$oid": "641c8a1c23880ed658c66c69"
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641c8a1c23880ed658c66c69"
+  },
+  "title": "some",
+  "description": "The word Some",
+  "price": 1,
+  "imageUrl": "https://i.ytimg.com/vi/QNJg5qlnwtk/maxresdefault.jpg",
+  "typeOfPurchase": "Sell",
+  "author": {
+    "$oid": "641c8d7f43fcca39f2e8b334"
+  },
+  "bids": [],
+  "__v": 0
+}]
