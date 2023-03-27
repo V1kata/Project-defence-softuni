@@ -1,12 +1,14 @@
 # This is my Bid site for the ReactJS course
-## My name is Viktor Hristov and this is my project:
+My name is Viktor Hristov and this is my project:
 
-- ## First we need to start the server - cd server
+1) First start the server - <strong>cd server</strong>
 
-## npm install to install all the dependancies
-npm start if you want it without nodemon, if you want nodemon - npm run dev
+<strong>npm install</strong> - to install all the dependencies
+<strong>Nodemon tool:</strong>
+<storng>npm run dev</strong> - with nodemon;
+<strong>npm start</strong> - without nodemon.
 
-- ## Then we go to client with cd client and we npm install all the dependancies
+2) Go to client with <strong>cd client</strong> and run the command <strong>npm install</strong>, to install all the dependencies
 - Since the server is made with express and mongoDB i'm giving you some premade users and bidItems in the users.json and bidItems.json
 - There are 3 users, just like in the training server: 
     * peter@abv.bg : 123456
