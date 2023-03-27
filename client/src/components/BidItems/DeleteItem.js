@@ -6,7 +6,7 @@ export function DeleteItem({ onDelete }) {
 
     useEffect(() => {
         async function request() {
-            await onDelete(itemId)
+            await onDelete(itemId);
         }
 
         request();

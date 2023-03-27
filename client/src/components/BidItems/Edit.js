@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
 import { useService } from '../../hooks/useService';
 import { bidItemRequest } from "../../services/bidItemService";
 
 export function Edit({ onEdit }) {
+    const { isAuthMiddleware } = useContext(AuthContext);
+    isAuthMiddleware();
+    
     const { itemId } = useParams();
     const bidItemServise = useService(bidItemRequest);
     const {formValues, onChangeHandler, onSubmit, changeValues} = useForm({

@@ -1,18 +1,12 @@
-import { useState, useEffect, useContext } from "react";
-import { useService } from "../../hooks/useService";
-import { authServiseFactory } from "../../services/authService";
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ProfileItem } from "./ProfileItem";
 import { Link } from "react-router-dom";
 
 export function Profile({ bidItems }) {
-    const { userId, userEmail, userPosts, userName, isAuthMiddleware, userImage } = useContext(AuthContext);
+    const { userId, userEmail, userPosts, userName, userImage, isAuthMiddleware } = useContext(AuthContext);
     isAuthMiddleware();
-
-    const authService = useService(authServiseFactory);
-
-    const posts = bidItems.filter(x => x.author == userId);
-    // console.log(posts)
+    const posts = bidItems.filter(x => x.author === userId);
 
     return (
         <section>
