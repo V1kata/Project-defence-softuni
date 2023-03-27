@@ -1,13 +1,13 @@
 [{
   "_id": {
-    "$oid": "641c03e46713322d00d3658e"
+    "$oid": "6421cc341a8bdc4b5a876930"
   },
-  "firstName": "Viktor",
-  "lastName": "Hristov",
-  "email": "viktor.burboran@gmail.com",
-  "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viktor_5.jpg",
-  "phoneNumber": "0886811780",
-  "password": "$2b$10$uztXv.6eS8OQ8pQmsQ8TK.THCL33sun02vuiOMhrZAKXgy5uiGyTu",
+  "firstName": "Peter",
+  "lastName": "Georgiev",
+  "email": "peter@abv.bg",
+  "imageUrl": "https://i.pinimg.com/736x/4e/5a/d6/4e5ad6486add8ad7224079786c5b90d1.jpg",
+  "phoneNumber": "0882411650",
+  "password": "$2b$10$uyfhlWgT9jR5rPCw8ezjAO0h6purR/xBgZCfvse9ecfaVwLPX2nGK",
   "posters": [
     {
       "$oid": "6414c41007e446aa50b1edb3"
@@ -19,33 +19,33 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "641c8a0823880ed658c66b0a"
+    "$oid": "6421cc8a1a8bdc4b5a879ca0"
   },
-  "firstName": "Pyrvan ",
-  "lastName": "Vtori4ni",
-  "email": "x@x.com",
-  "imageUrl": "https://wallpapers.com/images/hd/cool-profile-picture-ld8f4n1qemczkrig.jpg",
-  "phoneNumber": "0882500241",
-  "password": "$2b$10$SxZ/sIJ5gPbAbE/23D1an.HgkDLleHMpunFVkLjgFI6COV9DaByCe",
+  "firstName": "Georger",
+  "lastName": "Anderson",
+  "email": "george@abv.bg",
+  "imageUrl": "https://www.history.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3OTIzNjc4MTIxMzcxNTk4/the-things-george-washington-worried-about-are-happening-todays-featured-photo.jpg",
+  "phoneNumber": "0883650780",
+  "password": "$2b$10$5YtmdEjPCmB0fq3AfGq10eglmLjlvtJQeNTHIove4zAf3mZ0BPG.y",
   "posters": [
     {
-      "$oid": "6417568f139234e93bb1ac7e"
+      "$oid": "641c89c023880ed658c66845"
     },
     {
-      "$oid": "641c89c023880ed658c66845"
+      "$oid": "6417568f139234e93bb1ac7e"
     }
   ],
   "__v": 0
 },{
   "_id": {
-    "$oid": "641c8d7f43fcca39f2e8b334"
+    "$oid": "6421cd391a8bdc4b5a880829"
   },
-  "firstName": "Elon",
-  "lastName": "Musk",
-  "email": "e.musk@tesla.com",
-  "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg",
-  "phoneNumber": "0886780811",
-  "password": "$2b$10$7OtLqQTdrXnv8dURCaLqLuNA6IOFnN0L2p0y1ClJ4eQ7uyFRU1572",
+  "firstName": "Admin",
+  "lastName": "adminov",
+  "email": "admin@abv.bg",
+  "imageUrl": "https://thumbs.dreamstime.com/b/admin-sign-laptop-icon-stock-vector-166205404.jpg",
+  "phoneNumber": "0889456187",
+  "password": "$2b$10$uo8EI4N0iX66AhvyoBZh7eBs8MREYEp8tpO98gb/tM14kn9VjOFhS",
   "posters": [
     {
       "$oid": "641c8a1c23880ed658c66c69"

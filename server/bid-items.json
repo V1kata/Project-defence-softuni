@@ -8,7 +8,7 @@
   "typeOfPurchase": "Sell",
   "description": "Super nice truck",
   "author": {
-    "$oid": "641c03e46713322d00d3658e"
+    "$oid": "6421cc341a8bdc4b5a876930"
   },
   "bids": [],
   "__v": 0
@@ -18,13 +18,17 @@
   },
   "title": "House",
   "description": "Big brown 2 story house",
-  "price": 3700,
+  "price": 3850,
   "imageUrl": "https://cdn.houseplansservices.com/content/ivkicv330ndilq9r6bhiha71qn/w575.jpg?v=9",
   "typeOfPurchase": "Sell",
   "author": {
-    "$oid": "641c03e46713322d00d3658e"
+    "$oid": "6421cc341a8bdc4b5a876930"
   },
-  "bids": [],
+  "bids": [
+    {
+      "$oid": "6421cd391a8bdc4b5a880829"
+    }
+  ],
   "__v": 0
 },{
   "_id": {
@@ -36,7 +40,7 @@
   "imageUrl": "https://media.ipassio.com/media/blog/benefits-of-solving-rubiks-cube/blog_icon/benefits-of-solving-rubiks-cube.jpg",
   "typeOfPurchase": "Sell",
   "author": {
-    "$oid": "641c8a0823880ed658c66b0a"
+    "$oid": "6421cc8a1a8bdc4b5a879ca0"
   },
   "bids": [],
   "__v": 0
@@ -50,13 +54,9 @@
   "imageUrl": "https://images.ctfassets.net/sm166qdr1jca/79nx3RZ2aeXa4CQA9S1LUP/5ca94a8bf861cba2f962dae578b676f9/Shin_Lim_Portrait.jpg",
   "typeOfPurchase": "Sell",
   "author": {
-    "$oid": "641c8a0823880ed658c66b0a"
+    "$oid": "6421cc8a1a8bdc4b5a879ca0"
   },
-  "bids": [
-    {
-      "$oid": "641c8a1c23880ed658c66c69"
-    }
-  ],
+  "bids": [],
   "__v": 0
 },{
   "_id": {
@@ -68,7 +68,7 @@
   "imageUrl": "https://i.ytimg.com/vi/QNJg5qlnwtk/maxresdefault.jpg",
   "typeOfPurchase": "Sell",
   "author": {
-    "$oid": "641c8d7f43fcca39f2e8b334"
+    "$oid": "6421cd391a8bdc4b5a880829"
   },
   "bids": [],
   "__v": 0
