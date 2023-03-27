@@ -1,4 +1,4 @@
-# This is my Bid site for the ReactJs course
+# This is my Bid site for the ReactJS course
 ## My name is Viktor Hristov and this is my project:
 
 - ## First we need to start the server - cd server
