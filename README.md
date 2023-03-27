@@ -10,7 +10,7 @@ npm start if you want it without nodemon, if you want nodemon - npm run dev
 
 ## After we have started all things here is a brief description of the site
 
-- ## There are public and private parts like wanted the public are the main page, the create and details page, if you want to create you need to register or login first, there are no premade users
+- ## There are public and private parts as required the public are the main page, the create and details page, if you want to create you need to register or login first, there are no premade users
 
 - ## After we create something we can view it and edit or delete if we want and nobody has bidded on it
 
