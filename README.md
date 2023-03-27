@@ -3,10 +3,10 @@ My name is Viktor Hristov and this is my project:
 
 1) First start the server - <strong>cd server</strong>
 
-<strong>npm install</strong> - to install all the dependencies
-<strong>Nodemon tool:</strong>
-<storng>npm run dev</strong> - with nodemon;
-<strong>npm start</strong> - without nodemon.
+- <strong>npm install</strong> - to install all the dependencies
+- <strong>Nodemon tool:</strong>
+* <storng>npm run dev</strong> - with nodemon;
+* <strong>npm start</strong> - without nodemon.
 
 2) Go to client with <strong>cd client</strong> and run the command <strong>npm install</strong>, to install all the dependencies
 - Since the server is made with express and mongoDB i'm giving you some premade users and bidItems in the users.json and bidItems.json
