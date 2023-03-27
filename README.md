@@ -12,13 +12,13 @@ My name is Viktor Hristov and this is my project:
     * george@abv.bg : 123456
     * admin@abv.bg : admin
 
-2) Go to client with <strong>cd client</strong>;
-3) Run <strong>npm install</strong>, to install all the dependencies.
+2) Go to client with <strong>../cd client</strong>;
+3) Run <strong>npm install</strong>, to install all the dependencies;
+4) <strong>npm start</strong> - to run the client(site).
 
 ## After all things are set and server is up and running, there is a brief description of the site:
 
-- There are public and private parts. As required, the public pages of the site are listed below, whereas all additional(private) pages are accessible upon registration and login.
-- Public pages:
+- There are public and private parts. As required, the public pages of the site are <u>listed below</u>, whereas all additional(private) pages are accessible upon registration and login.
     * Main page;
     * Catalogue page;
     * Details page.
