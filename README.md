@@ -5,24 +5,30 @@ My name is Viktor Hristov and this is my project:
 
 - <strong>npm install</strong> - to install all the dependencies
 - <strong>Nodemon tool:</strong>
-* <storng>npm run dev</strong> - with nodemon;
-* <strong>npm start</strong> - without nodemon.
-
-2) Go to client with <strong>cd client</strong> and run the command <strong>npm install</strong>, to install all the dependencies
-- Since the server is made with express and mongoDB i'm giving you some premade users and bidItems in the users.json and bidItems.json
-- There are 3 users, just like in the training server: 
+    * <storng>npm run dev</strong> - with nodemon;
+    * <strong>npm start</strong> - without nodemon.
+- Since the server is made with express and MongoDB, below you may find a list with 3 predefined users(like in the training server) and bidItems in the <strong>users.json</strong> and <strong>bidItems.json</strong>:
     * peter@abv.bg : 123456
     * george@abv.bg : 123456
     * admin@abv.bg : admin
 
-## After we have started all things, here is a brief description of the site
+2) Go to client with <strong>cd client</strong>;
+3) Run <strong>npm install</strong>, to install all the dependencies.
 
-- ## There are public and private parts as required the public are the main page, the create and details page, if you want to create you need to register or login first
+## After all things are set and server is up and running, there is a brief description of the site:
 
-- ## After we create something we can view it and edit or delete if we want and nobody has bidded on it
+- There are public and private parts. As required, the public pages of the site are:
+    * Main page;
+    * Catalogue page;
+    * Details page.
+All additional pages are accessible upon registration and login.
 
-- ### The bidding is available to people who are logged and haven't bidded yet, they can only bid one time, the last bidder is the winner, even though they don't win because there is no time limit
+- After creating it's own item, the user can view, edit or delete it. Anybody, except the item owner, can bid on that item.
+Note: edit, delete operations are available, only if there are no bids on that item.
 
-- To bid just click the button "Bid" and a mini form will appear, there just type the money you want to bid and the new price will update as well as it will say that you are the winner
+- Bidding option is available for logged in users who haven't placed a bid on that item. Each use can only bid once per item, as the last bidder is the winner.
+Note: there is no time limit implemented, therefore there is no actual winner.
 
-- ## The last dynamic page is the profile, where you can see your image, name, email, number of posts and the picture of the items you have created, if clicked it goes directly to the details of the product
+- To place a bid, click the "Bid" button, followed by mini form field shown. Type amount of your choice, place the bid and you WIN ;).
+
+- The last dynamic page is the "Profile". There you can view your image, name, email, number of posts and the image of items you have created. When clicked, you are directly send to the details page of the product.
