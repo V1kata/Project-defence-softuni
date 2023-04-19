@@ -24,7 +24,7 @@ My name is Viktor Hristov and this is my project:
 All additional pages are accessible upon registration and login.
 
 - After creating it's own item, the user can view, edit or delete it. Anybody, except the item owner, can bid on that item.
-Note: edit, delete operations are available, only if there are no bids on that item.
+<br />Note: edit, delete operations are available, only if there are no bids on that item.
 
 - Bidding option is available for logged in users who haven't placed a bid on that item. Each use can only bid once per item, as the last bidder is the winner.
 Note: there is no time limit implemented, therefore there is no actual winner.
