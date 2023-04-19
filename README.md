@@ -27,7 +27,7 @@ All additional pages are accessible upon registration and login.
 <br />Note: edit, delete operations are available, only if there are no bids on that item.
 
 - Bidding option is available for logged in users who haven't placed a bid on that item. Each use can only bid once per item, as the last bidder is the winner.
-Note: there is no time limit implemented, therefore there is no actual winner.
+<br />Note: there is no time limit implemented, therefore there is no actual winner.
 
 - To place a bid, click the "Bid" button, followed by mini form field shown. Type amount of your choice, place the bid and you WIN ;).
 
